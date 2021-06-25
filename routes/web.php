@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,7 @@ Route::get('/', function () {
 });
 // Tạo 1 nhóm route với tiền tố customer
 Route::prefix('customer')->group(function () {
-    Route::get('index', function () {
-        // Hiển thị danh sách khách hàng
-        return view('modules.customer.index');
-    });
+    Route::get('index', [CustomerController::class, 'index']);
 
     Route::get('create', function () {
         // Hiển thị Form tạo khách hàng
